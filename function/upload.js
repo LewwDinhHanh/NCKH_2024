@@ -1,5 +1,5 @@
 const dropzoneBox = document.getElementsByClassName("dropzone-box")[0];
-const detectElement = document.getElementById("detect")
+const background_testElement = document.querySelector("#background_test")
 const inputFiles = document.querySelectorAll(
   ".dropzone-area input[type='file']"
 );
@@ -67,8 +67,13 @@ dropzoneBox.addEventListener("submit", (e) => {
     const data = res.data;
     const image = `http://localhost:5000/${data?.image}`
     const imageElement = document.createElement("img");
+    imageElement.style.width = '256px';
+    imageElement.style.height = '256px';
     imageElement.src = image;
-    detectElement.innerHTML = '';
+    background_testElement.innerHTML = '';
+    const detectContainer = document.createElement('div');
+    detectContainer.id = 'detect';
+    
     const wrapDetectElement = document.createElement("div");
     const txt1 = document.createElement('p');
     const txt2 = document.createElement('p');
@@ -81,8 +86,9 @@ dropzoneBox.addEventListener("submit", (e) => {
     wrapDetectElement.appendChild(txt1);
     wrapDetectElement.appendChild(txt2);
 
-    detectElement.appendChild(wrapDetectElement);
-    detectElement.appendChild(imageElement);
+    detectContainer.appendChild(wrapDetectElement);
+    detectContainer.appendChild(imageElement);
+    background_testElement.appendChild(detectContainer)
   })
 });
 
