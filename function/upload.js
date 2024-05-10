@@ -40,9 +40,7 @@ dropZoneElement.addEventListener("drop", (e) => {
 const updateDropzoneFileList = (dropzoneElement, file) => {
   let dropzoneFileMessage = dropzoneElement.querySelector(".file-info");
 
-  dropzoneFileMessage.innerHTML = `
-        ${file.name}, ${file.size} bytes
-    `;
+  dropzoneFileMessage.innerHTML = `${file.name}, ${file.size} bytes`;
 };
 
 dropzoneBox.addEventListener("reset", (e) => {
@@ -56,4 +54,6 @@ dropzoneBox.addEventListener("submit", (e) => {
   const myFiled = document.getElementById("upload-file");
   console.log(myFiled.files[0]);
 });
- 
+
+
+
