@@ -67,8 +67,8 @@ dropzoneBox.addEventListener("submit", (e) => {
     const data = res.data;
     const image = `http://localhost:5000/${data?.image}`
     const imageElement = document.createElement("img");
-    imageElement.style.width = '256px';
-    imageElement.style.height = '256px';
+    imageElement.style.width = '500px';
+    imageElement.style.height = '400px';
     imageElement.src = image;
     background_testElement.innerHTML = '';
     const detectContainer = document.createElement('div');
@@ -77,14 +77,42 @@ dropzoneBox.addEventListener("submit", (e) => {
     const wrapDetectElement = document.createElement("div");
     const txt1 = document.createElement('p');
     const txt2 = document.createElement('p');
+    const txt3 = document.createElement('p');
+    const txt4 = document.createElement('p');
     
-    txt1.innerHTML = `<b>confidence</b>: ${data?.result?.[0]?.confidence}`;
-    txt1.style.fontSize = '30px'; // Thay đổi kích thước chữ ở đây
-    txt2.innerHTML = `<b>class</b>: ${data?.result?.[0]?.class}`;
+    // txt1.innerHTML = `<b>class</b>: ${data?.result?.[0]?.class}`;
+    // txt1.style.fontSize = '30px'; // Thay đổi kích thước chữ ở đây
+
+    const classValue = data?.result?.[0]?.class;
+    if (classValue === "c-dom-la") {
+      txt1.innerHTML = `<b>Kết quả: </b>: Bệnh đốm lá`;
+      txt3.innerHTML = `<b>Nguyên nhân: </b>Bệnh đốm lá là loại bệnh do vi khuẩn Septoria lycopersici gây ra, chúng đặc biệt phát triển mạnh trong điều kiện ẩm ướt, ấm áp.`;
+      txt4.innerHTML = `<b>Biện pháp: </b>Loại bỏ tất cả các lá bị nhiễm bệnh ngay khi bạn nhìn thấy chúng và sau đó phun các phần còn lại của cây bằng thuốc diệt nấm hữu cơ dựa trên đồng hoặc kali bicacbonat.`;
+    } 
+    else{
+      txt1.innerHTML = `<b>Kết quả: </b>: Lá khỏe mạnh`;
+    }
+    txt1.style.fontSize = '30px'; 
+    txt1.style.marginBottom = '10px';
+    txt1.style.color = 'red';
+
+    const confidenceValue = data?.result?.[0]?.confidence;
+    const formattedConfidence = confidenceValue.toFixed(4);
+    txt2.innerHTML = `<b>Độ tin cậy: </b>${formattedConfidence}`;
+
     txt2.style.fontSize = '30px'; // Thay đổi kích thước chữ ở đây
-    
+    txt2.style.marginBottom = '10px';
+    txt2.style.color = 'red';
+
+    txt3.style.fontSize = '20px'; // Thay đổi kích thước chữ ở đây
+    txt3.style.marginBottom = '10px';
+
+    txt4.style.fontSize = '20px'; // Thay đổi kích thước chữ ở đây
+    txt4.style.marginBottom = '10px';
     wrapDetectElement.appendChild(txt1);
     wrapDetectElement.appendChild(txt2);
+    wrapDetectElement.appendChild(txt3);
+    wrapDetectElement.appendChild(txt4);
 
     detectContainer.appendChild(wrapDetectElement);
     detectContainer.appendChild(imageElement);

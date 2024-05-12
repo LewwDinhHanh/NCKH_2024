@@ -236,10 +236,10 @@ button:hover {
 
 .showmore{
     position: absolute;
-    background-color: aqua;
+    background-color: #FAEBD7;
     width: 80vw;
     z-index: 99999;
-    top: 100px;
+    top: 90px;
     left: 50%;
     transform: translateX(-50%);
     display: none;
@@ -251,7 +251,8 @@ button:hover {
     display: flex;
 }
 .showmore img{
-    width: 30vw;
+    width: 23vw;
+    /* height: 250px; */
 }
 
 img.close {
@@ -282,4 +283,18 @@ img.close {
 
 p.d_name{
     width: calc(40vw - 40px);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.c{
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 40px;
+    margin-top: 30px;
+    color: red;
+}
+
+.mesure{
+    font-size: 20px;
 }
