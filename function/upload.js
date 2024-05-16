@@ -86,7 +86,8 @@ dropzoneBox.addEventListener("submit", (e) => {
     const classValue = data?.result?.[0]?.class;
     if (classValue === "c-dom-la") {
       txt1.innerHTML = `<b>Kết quả: </b> Bệnh đốm lá`;
-      txt3.innerHTML = `<b>Nguyên nhân: </b>Bệnh đốm lá là loại bệnh do vi khuẩn Septoria lycopersici gây ra, chúng đặc biệt phát triển mạnh trong điều kiện ẩm ướt, ấm áp.`;
+      txt3.innerHTML = `<b>Nguyên nhân: </b>Bệnh đốm lá là loại bệnh do vi khuẩn Septor
+      ia lycopersici gây ra, chúng đặc biệt phát triển mạnh trong điều kiện ẩm ướt, ấm áp.`;
       txt4.innerHTML = `<b>Biện pháp: </b>Loại bỏ tất cả các lá bị nhiễm bệnh ngay khi bạn nhìn thấy chúng và sau đó phun các phần còn lại của cây bằng thuốc diệt nấm hữu cơ dựa trên đồng hoặc kali bicacbonat.`;
     } 
     else{
